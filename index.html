@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        code, .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .industrial-bg {
+            background: linear-gradient(135deg, #4D2B8C 0%, #85409D 100%);
+        }
+        
+        .card-industrial {
+            background: linear-gradient(145deg, rgba(133, 64, 157, 0.3), rgba(77, 43, 140, 0.5));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(238, 167, 39, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .card-industrial:hover {
+            transform: translateY(-5px);
+            border-color: #EEA727;
+            box-shadow: 0 15px 40px rgba(238, 167, 39, 0.2);
+        }
+        
+        .accent-line {
+            background: linear-gradient(90deg, #EEA727, #FFEF5F);
+            height: 3px;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FFEF5F;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .tech-badge {
+            background: rgba(238, 167, 39, 0.2);
+            border: 1px solid #EEA727;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background: #EEA727;
+            color: #4D2B8C;
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255, 239, 95, 0.5);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #EEA727, #FFEF5F);
+            color: #4D2B8C;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(238, 167, 39, 0.4);
+        }
+        
+        .btn-secondary {
+            border: 2px solid #FFEF5F;
+            color: #FFEF5F;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #FFEF5F;
+            color: #4D2B8C;
+        }
+        
+        .code-block {
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 3px solid #EEA727;
+        }
+        
+        .profile-frame {
+            position: relative;
+            border: 3px solid #EEA727;
+            box-shadow: 0 0 30px rgba(238, 167, 39, 0.4), inset 0 0 20px rgba(77, 43, 140, 0.6);
+        }
+        
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid rgba(255, 239, 95, 0.3);
+            border-radius: inherit;
+            z-index: -1;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(110%);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(238, 167, 39, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(238, 167, 39, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .profile-placeholder {
+            background: linear-gradient(135deg, #85409D, #4D2B8C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: rgba(238, 167, 39, 0.3);
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-gradient-to-r from-[#4D2B8C] to-[#85409D] bg-opacity-95 backdrop-blur-sm border-b border-purple-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="code-font text-2xl font-bold text-[#FFEF5F]">&lt;/&gt;</div>
+                    <span class="font-bold text-xl tracking-wider">Yasmin Pratiwi</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-200 hover:text-[#FFEF5F]">Beranda</a>
+                    <a href="#about" class="nav-link text-gray-200 hover:text-[#FFEF5F]">tentang</a>
+                    <a href="#projects" class="nav-link text-gray-200 hover:text-[#FFEF5F]">PrEestasi</a>
+                    <a href="#contact" class="nav-link text-gray-200 hover:text-[#FFEF5F]">Kontak</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 industrial-bg grid-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block mb-4">
+                        <span class="bg-gradient-to-r from-[#EEA727] to-[#FFEF5F] text-[#4D2B8C] px-4 py-1 text-sm font-bold tracking-wider rounded">FULL STACK DEVELOPER</span>
+                    </div>
+                    <h1 class="text-5xl  md:text-6xl font-black mb-6 leading-tight text-black">
+                        Hi, I'm<br/>
+                        <span class="glow-text text-[#FFEF5F]">Yasmin Pratiwi</span>
+                    </h1>
+                    <div class="accent-line w-32 mb-6"></div>
+                    <p class="text-xl text-black mb-8">
+                        Saya sekarang adalah siswi SMK Telkom Malang. Disini saya mengambil Jurusan RPL atau rekaya perangkat lunak.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#projects" class="btn-primary px-8 py-3 rounded">
+                            Prestasi 
+                        </a>
+                        <a href="#contact" class="btn-secondary px-8 py-3 rounded">
+                            Hubungi 
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Profile Photo Section -->
+                <div class="flex justify-center">
+                    <div class="relative float-animation">
+                            <div class="profile-frame rounded-lg overflow-hidden w-80 h-80">
+                                <img src="./foto sendiri.jpg" alt="Profile Photo" class="profile-image">
+                            </div>
+                            <!-- Uncomment dan ganti URL dengan foto Anda -->
+                            <!-- <img src="your-photo-url.jpg" alt="Profile Photo" class="profile-image"> -->
+                        </div>
+                        <!-- Decorative corner accents -->
+                        <div class="absolute -top-4 -left-4 w-8 h-8 border-t-4 border-l-4 border-[#FFEF5F]"></div>
+                        <div class="absolute -top-4 -right-4 w-8 h-8 border-t-4 border-r-4 border-[#FFEF5F]"></div>
+                        <div class="absolute -bottom-4 -left-4 w-8 h-8 border-b-4 border-l-4 border-[#FFEF5F]"></div>
+                        <div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-4 border-r-4 border-[#FFEF5F]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-[#4D2B8C]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Photo Section -->
+                <div class="flex justify-center order-2 md:order-1">
+                    <div class="profile-frame rounded-lg overflow-hidden w-96 h-96">
+                        <div class="profile-placeholder">
+                            📸
+                        </div>
+                        <!-- Uncomment dan ganti URL dengan foto Anda -->
+                        <!-- <img src="your-photo-url-2.jpg" alt="About Photo" class="profile-image"> -->
+                    </div>
+                </div>
+                
+                <div class="order-1 md:order-2">
+                    <span class="text-[#FFEF5F] font-bold tracking-wider">ABOUT ME</span>
+                    <h2 class="text-4xl font-black mt-4 mb-6">Software engineering</h2>
+                    <div class="accent-line w-24 mb-6"></div>
+                    <p class="text-gray-200 mb-4 leading-relaxed">
+                        Hi, Saya Yasmin. Selama di SMK Telkom Malang, saya disini mulai mengetahui tentang dasar-dasar kodingan. Disini juga saya mendapatkan banyak ilmu dari jurusan saya sendiri, contohnya saya belajar bahsasa java, C#, dan html.
+                    </p>
+                    <p class="text-gray-200 mb-6 leading-relaxed">
+                        Selain di akademik, aslinya saya mempunyai bakat di non akademik yaitu Badminton, dulu saya ingin menjadi seorang atlet badminton. Tetapi, sekarang hanya saya gunakan sebagai hobi saja. 
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="card-industrial p-4 rounded">
+                            <div class="text-3xl font-black text-[#FFEF5F] mb-1">Harapan</div>
+                            <p class="text-sm text-gray-300">semoga dapat meninggikan derajat orang tua</p>
+                        </div>
+                        <div class="card-industrial p-4 rounded">
+                            <div class="text-3xl font-black text-[#FFEF5F] mb-1">Bias</div>
+                            <p class="text-sm text-gray-300">jekey lovers</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tech-badge px-4 py-2 rounded text-sm">Sekolah</span>
+                        <span class="tech-badge px-4 py-2 rounded text-sm">Tidur</span>
+                        <span class="tech-badge px-4 py-2 rounded text-sm">Begadang</span>
+                        <span class="tech-badge px-4 py-2 rounded text-sm">Bokek</span>
+                        <span class="tech-badge px-4 py-2 rounded text-sm">Healing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gradient-to-b from-[#4D2B8C] to-[#85409D] grid-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-[#FFEF5F] font-bold tracking-wider"> Tentang </span>
+                <h2 class="text-4xl font-black mt-4 mb-6">Prestasi</h2>
+                <div class="accent-line w-24 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-industrial rounded-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-[#85409D] to-[#4D2B8C] flex items-center justify-center border-b-2 border-[#EEA727]">
+                        <div class="code-font text-5xl text-[#FFEF5F]">&lt;/&gt;</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mt-2 mb-3">Juara 2</h3>
+                        <p class="text-gray-200 text-sm mb-4">OLIMPIADE SAINS NASIONAL BIDANG MATEMATIKA PADA TAHUN 2023</p>
+                        <p class="text-gray-200 text-sm mb-4">Meski terkadang menjalankan hidup sangat berat, harus dengan paksaan tetap semangat yaa...</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-2 py-1 text-xs rounded">Semangat</span>
+                            <span class="tech-badge px-2 py-1 text-xs rounded">Jalanin </span>
+                            <span class="tech-badge px-2 py-1 text-xs rounded">jangan nyerah </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-industrial rounded-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-[#85409D] to-[#4D2B8C] flex items-center justify-center border-b-2 border-[#EEA727]">
+                        <div class="code-font text-5xl text-[#FFEF5F]">{ }</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mt-2 mb-3">Juara 3 </h3>
+                        <p class="text-gray-200 text-sm mb-4">Turnament Badminton 2019</p>
+                        <p class="text-gray-200 text-sm mb-4">Semangat terus meski sebuh prestasimu tidak di dukung</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-2 py-1 text-xs rounded">tetap</span>
+                            <span class="tech-badge px-2 py-1 text-xs rounded">semangat </span>
+                            <span class="tech-badge px-2 py-1 text-xs rounded">Bess</span>
+                        </div>
+                        <a href="#" class="text-[#FFEF5F] hover:text-[#EEA727] text-sm font-semibold"></a>
+                    </div>
+                </div>
+
+                <div class="card-industrial rounded-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-[#85409D] to-[#4D2B8C] flex items-center justify-center border-b-2 border-[#EEA727]">
+                        <div class="code-font text-5xl text-[#FFEF5F]">[ ]</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mt-2 mb-3">Belum ada </h3>
+                        <p class="text-gray-200 text-sm mb-4"></p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-2 py-1 text-xs rounded"></span>
+                            <span class="tech-badge px-2 py-1 text-xs rounded"></span>
+                            <span class="tech-badge px-2 py-1 text-xs rounded"></span>
+                        </div>
+                        <a href="#" class="text-[#FFEF5F] hover:text-[#EEA727] text-sm font-semibold"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-[#4D2B8C] to-[#85409D] grid-pattern">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-[#FFEF5F] font-bold tracking-wider">My Portofolio</span>
+                <h2 class="text-4xl font-black mt-4 mb-6">Berisi tentang diri saya  </h2>
+                <div class="accent-line w-24 mx-auto"></div>
+            </div>
+            
+            
+    <!-- Footer -->
+    <footer class="bg-[#4D2B8C] py-8 border-t border-[#85409D]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-300 code-font">&lt;/&gt; Untuk mengetahui lebih lanjut tentang diri saya, jangan lupa sering mampir di web ini yaa bestie | &copy; 2025</p>
+            
+        </div>
+    </footer>
+
+</body>
+</html>
